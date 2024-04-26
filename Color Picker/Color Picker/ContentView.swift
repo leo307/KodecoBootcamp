@@ -21,28 +21,29 @@ struct ContentView: View {
             RoundedRectangle(cornerRadius: 20).fill(rectColor)
             
             VStack {
-                VStack{
-                    // Red Slider
-                    Text("Red")
-                    Slider(value: $redSlider, in: 0...255, step: 1)
-                    
+                
+                // Red Slider
+                Text("Red")
+                HStack{
+                    Slider(value: $redSlider, in: 0...255)
+                    Text("\(Int(redSlider))")
                 }
-                VStack{
-                    // Green Slider
-                    Text("Green")
-                    Slider(value: $greenSlider, in: 0...255, step: 1)
-                    
+                // Green Slider
+                Text("Green")
+                HStack{
+                    Slider(value: $greenSlider, in: 0...255)
+                    Text("\(Int(greenSlider))")
                 }
-                VStack{
-                    // Blue Slider
-                    Text("Blue")
-                    Slider(value: $blueSlider, in: 0...255, step: 1)
-                    
+                // Blue Slider
+                Text("Blue")
+                HStack{
+                    Slider(value: $blueSlider, in: 0...255)
+                    Text("\(Int(blueSlider))")
                 }
             }
             
             Button(action: {
-                rectColor = Color(red: redSlider, green: greenSlider, blue: blueSlider)
+                rectColor = Color(red: redSlider / 255, green: greenSlider / 255, blue: blueSlider / 255)
             }){
                 Text("Set Color")
             }
