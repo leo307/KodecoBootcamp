@@ -1,15 +1,15 @@
-/// Copyright (c) 2023 Kodeco Inc.
-///
+/// Copyright (c) 2024 Kodeco Inc.
+/// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
 /// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
-///
+/// 
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
-///
+/// 
 /// Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
 /// distribute, sublicense, create a derivative work, and/or sell copies of the
 /// Software in any work that is designed, intended, or marketed for pedagogical or
@@ -17,7 +17,7 @@
 /// or information technology.  Permission for such use, copying, modification,
 /// merger, publication, distribution, sublicensing, creation of derivative works,
 /// or sale is expressly withheld.
-///
+/// 
 /// This project and source code may use libraries or frameworks that are
 /// released under various Open-Source licenses. Use of those libraries and
 /// frameworks are governed by their own individual licenses.
@@ -32,48 +32,23 @@
 
 import SwiftUI
 
-struct ContentView: View {
-  @State private var alertIsVisible: Bool = false
-  @State private var redColor: Double = 0.0
-  @State private var greenColor: Double = 0.0
-  @State private var blueColor: Double = 0.0
-  @State private var foregroundColor = Color(red: 0, green: 0, blue: 0)
-
+struct SliderView: View {
+  @Binding var color: Double
+  var name: String
+  var tint: Color
   var body: some View {
-    
-    let borderWidth: Float = 5
-    
     VStack {
-      Text("Color Picker")
-          .bold()
-        .font(.largeTitle)
-
-      RoundedRectangle(cornerRadius: 0)
-        .foregroundColor(foregroundColor)
-        .border(.gray.opacity(30), width: CGFloat(borderWidth))
-        .padding(.vertical, 10)
-      SliderView(color: $redColor, name: "Red", tint: Color.red)
-      SliderView(color: $greenColor, name: "Green", tint: Color.green)
-      SliderView(color: $blueColor, name: "Blue", tint: Color.blue)
-      
-      
-      Button("Set Color") {
-        foregroundColor = Color(red: redColor / 255, green: greenColor / 255, blue: blueColor / 255)
+      Text(name)
+      HStack {
+        Slider(value: $color, in: 0...255)
+          .padding(10.0)
+          .accentColor(tint)
+        Text("\(Int(color.rounded()))")
       }
-      .padding(15.0)
-      .background(Color.blue)
-      .foregroundColor(Color.white)
-      .cornerRadius(20)
     }
-    .padding(20)
-
   }
 }
 
-struct ContentView_Previews: PreviewProvider {
-  static var previews: some View {
-    ContentView()
-  }
+#Preview {
+  SliderView(color: .constant(0), name: "red", tint: Color.red)
 }
-
-
