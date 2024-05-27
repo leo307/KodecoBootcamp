@@ -44,6 +44,7 @@ struct SearchBar_Previews: PreviewProvider {
     // Temp variable for preview to work
     @State static var searchText = ""
     
+    
     static var previews: some View {
         SearchView(text: $searchText)
     }

@@ -6,28 +6,31 @@ import SwiftUI
 
 struct TaskRowView: View {
     
-    var task: Task
+    @Binding var task: Task
     var taskStore: TaskStore
-    @State private var checked = false
+    @State private var checked: Bool
     
+    init(task: Binding<Task>, taskStore: TaskStore) {
+        self._task = task
+        self.taskStore = taskStore
+        _checked = State(initialValue: task.wrappedValue.isCompleted)
+    } // Not sure if this is the right method, but assigning and initializing checked, to isCompleted, works for the requirements.
     
     var body: some View {
         HStack {
             Text(task.title)
             Spacer()
             Button(action: {
-                withAnimation{
+                withAnimation {
                     checked.toggle()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                        
-                        print(task.isCompleted)
                         taskStore.toggleTaskCompletion(task: task)
-
+                        // print(task.isCompleted) // debug
                     }
                 }
-            }){
-                Image(systemName: task.isCompleted || checked ? "checkmark.square" : "square")
-                    .foregroundColor(task.isCompleted || checked ? Color.green : Color.red)
+            }) {
+                Image(systemName: checked ? "checkmark.square" : "square")
+                    .foregroundColor(checked ? Color.green : Color.red)
             }
         }
         .buttonStyle(BorderlessButtonStyle())
@@ -39,7 +42,10 @@ struct TaskRowView: View {
 }
 
 struct TaskRow_Previews: PreviewProvider {
+    
+    @State static var task = Task(title: "Fix incompleting task animation", category: .noCategory, isCompleted: false)
+    
     static var previews: some View {
-        TaskRowView(task: Task(title: "My Task", category: .noCategory, isCompleted: false), taskStore: TaskStore())
+        TaskRowView(task: $task, taskStore: TaskStore())
     }
 }
