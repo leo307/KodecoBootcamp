@@ -5,32 +5,30 @@
 import SwiftUI
 
 struct ContentView: View {
-  @StateObject var taskStore = TaskStore()
-  
-  var body: some View {
-    NavigationStack {
-      VStack {
-        if taskStore.tasks.isEmpty {
-          Text("No tasks found")
-        } else {
-          TaskListView(taskStore: taskStore)
+    
+    @State private var currentTab = 0
+    @State private var query = ""
+    @StateObject var taskStore = TaskStore()
+    
+    var body: some View {
+        NavigationStack {
+            SearchView(text: $query)
+            TabbedView(currentTab: $currentTab, query: $query, taskStore: taskStore)
+                .navigationTitle("My Tasks")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        if currentTab == 0 {
+                            NewTaskButtonView(taskStore: taskStore)
+                        }
+                    }
+                }
         }
-        Spacer()
-        //NewTaskButton(addingTask: $addingTask)
-      }
-      .navigationTitle("My Tasks")
-      .toolbar {
-        ToolbarItem(placement: .navigationBarTrailing) {
-          NewTaskButtonView(taskStore: taskStore)
-        }
-      }
     }
-  }
-  
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
-  static var previews: some View {
-    ContentView()
-  }
+    static var previews: some View {
+        ContentView()
+    }
 }

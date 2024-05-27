@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		59E3E0012C03A8610028D72A /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E3E0002C03A8610028D72A /* TabView.swift */; };
+		59E3E0032C03A9550028D72A /* CompletedTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E3E0022C03A9550028D72A /* CompletedTasksView.swift */; };
+		59E3E0052C03FB6B0028D72A /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E3E0042C03FB6B0028D72A /* SearchView.swift */; };
 		BA1340E72A915A2A001A1F9F /* Homework5App.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1340E62A915A2A001A1F9F /* Homework5App.swift */; };
 		BA1340E92A915A2A001A1F9F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1340E82A915A2A001A1F9F /* ContentView.swift */; };
 		BA1340EB2A915A2D001A1F9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA1340EA2A915A2D001A1F9F /* Assets.xcassets */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		59E3E0002C03A8610028D72A /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		59E3E0022C03A9550028D72A /* CompletedTasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTasksView.swift; sourceTree = "<group>"; };
+		59E3E0042C03FB6B0028D72A /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		BA1340E32A915A2A001A1F9F /* Homework6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homework6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA1340E62A915A2A001A1F9F /* Homework5App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homework5App.swift; sourceTree = "<group>"; };
 		BA1340E82A915A2A001A1F9F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,6 +106,9 @@
 				BA1340FE2A9193BB001A1F9F /* NewTaskButton.swift */,
 				BA1340FC2A918B27001A1F9F /* TaskDetailView.swift */,
 				BA6EC8FB2AC4753D008BBB16 /* NewTaskButtonView.swift */,
+				59E3E0002C03A8610028D72A /* TabView.swift */,
+				59E3E0022C03A9550028D72A /* CompletedTasksView.swift */,
+				59E3E0042C03FB6B0028D72A /* SearchView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,12 +183,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59E3E0012C03A8610028D72A /* TabView.swift in Sources */,
 				BA1340F92A916627001A1F9F /* TaskRowView.swift in Sources */,
 				BA1340FD2A918B27001A1F9F /* TaskDetailView.swift in Sources */,
 				BA1340F72A916399001A1F9F /* AddTaskView.swift in Sources */,
+				59E3E0052C03FB6B0028D72A /* SearchView.swift in Sources */,
 				BA1340FF2A9193BB001A1F9F /* NewTaskButton.swift in Sources */,
 				BA1340E92A915A2A001A1F9F /* ContentView.swift in Sources */,
 				BA1340E72A915A2A001A1F9F /* Homework5App.swift in Sources */,
+				59E3E0032C03A9550028D72A /* CompletedTasksView.swift in Sources */,
 				BA1340F52A9161C3001A1F9F /* TaskStore.swift in Sources */,
 				BA1341012A919522001A1F9F /* TaskListView.swift in Sources */,
 				BA6EC8FC2AC4753D008BBB16 /* NewTaskButtonView.swift in Sources */,
@@ -311,7 +323,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Homework6/Preview Content\"";
-				DEVELOPMENT_TEAM = BBK84N9JY9;
+				DEVELOPMENT_TEAM = B28V875DV5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -324,7 +336,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ehjconsultancy.com.Homework5;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobilelocker.leo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -340,7 +352,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Homework6/Preview Content\"";
-				DEVELOPMENT_TEAM = BBK84N9JY9;
+				DEVELOPMENT_TEAM = B28V875DV5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -353,7 +365,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ehjconsultancy.com.Homework5;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobilelocker.leo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
