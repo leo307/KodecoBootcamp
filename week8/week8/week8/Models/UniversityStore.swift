@@ -11,7 +11,7 @@ class UniversityStore: ObservableObject {
     
     @Published var universities: [University] = []
 
-    func fetchData() async {
+    @MainActor func fetchData() async {
         
         let decoder = JSONDecoder()
         guard let url = URL(string: "http://universities.hipolabs.com/search?country=United+States") else {
