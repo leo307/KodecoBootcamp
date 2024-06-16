@@ -37,7 +37,7 @@ class ImageStore: ObservableObject {
         do {
             let (data, _) = try await URLSession.shared.data(for: request)
             let result = try decoder.decode(PexelsResponse.self, from: data)
-            print(PexelsResponse.self)
+            print(result)
             DispatchQueue.main.async {
                 self.images = result.photos
             }
