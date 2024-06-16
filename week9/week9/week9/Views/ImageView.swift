@@ -10,12 +10,12 @@ import SwiftUI
 struct ImageView: View {
     
     @ObservedObject var imageStore: ImageStore
-    @State private var downloadedImageURL: URL?
+    @State private var downloadedPexelURL: URL?
     let imageUrl: String
 
     var body: some View {
         VStack {
-            if let downloadedImageURL = downloadedImageURL,
+            if let downloadedImageURL = downloadedPexelURL,
                let imageData = try? Data(contentsOf: downloadedImageURL),
                let uiImage = UIImage(data: imageData) {
                 
@@ -29,7 +29,7 @@ struct ImageView: View {
                     .onAppear {
                         imageStore.downloadImage(imageUrl: imageUrl) { url in
                             DispatchQueue.main.async {
-                                self.downloadedImageURL = url
+                                self.downloadedPexelURL = url
                             }
                         }
                     }

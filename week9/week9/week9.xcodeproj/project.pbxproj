@@ -14,7 +14,6 @@
 		59E819232C1F510B00BCBB19 /* PexelsInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 59E819222C1F510B00BCBB19 /* PexelsInfo.plist */; };
 		59E819272C1F522600BCBB19 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E819262C1F522600BCBB19 /* ImageStore.swift */; };
 		59E8192B2C1F524F00BCBB19 /* PexelImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E8192A2C1F524F00BCBB19 /* PexelImage.swift */; };
-		59E8192D2C1F526600BCBB19 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E8192C2C1F526600BCBB19 /* SearchBarView.swift */; };
 		59E8192F2C1F550300BCBB19 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E8192E2C1F550300BCBB19 /* ImageView.swift */; };
 		59E819332C1F5E1C00BCBB19 /* PexelsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E819322C1F5E1C00BCBB19 /* PexelsResponse.swift */; };
 /* End PBXBuildFile section */
@@ -28,7 +27,6 @@
 		59E819222C1F510B00BCBB19 /* PexelsInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PexelsInfo.plist; sourceTree = "<group>"; };
 		59E819262C1F522600BCBB19 /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		59E8192A2C1F524F00BCBB19 /* PexelImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PexelImage.swift; sourceTree = "<group>"; };
-		59E8192C2C1F526600BCBB19 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		59E8192E2C1F550300BCBB19 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		59E819322C1F5E1C00BCBB19 /* PexelsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PexelsResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,7 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				59E819162C1F506C00BCBB19 /* ContentView.swift */,
-				59E8192C2C1F526600BCBB19 /* SearchBarView.swift */,
 				59E8192E2C1F550300BCBB19 /* ImageView.swift */,
 			);
 			path = Views;
@@ -173,7 +170,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				59E8192F2C1F550300BCBB19 /* ImageView.swift in Sources */,
-				59E8192D2C1F526600BCBB19 /* SearchBarView.swift in Sources */,
 				59E819332C1F5E1C00BCBB19 /* PexelsResponse.swift in Sources */,
 				59E819172C1F506C00BCBB19 /* ContentView.swift in Sources */,
 				59E819152C1F506C00BCBB19 /* week9App.swift in Sources */,

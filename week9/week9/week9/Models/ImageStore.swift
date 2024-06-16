@@ -9,7 +9,6 @@ import Foundation
 
 class ImageStore: ObservableObject {
     @Published var images: [PexelImage] = []
-    @Published var downloadedPexelURL: URL?
     
     private var apiKey: String {
         get {
@@ -38,6 +37,7 @@ class ImageStore: ObservableObject {
         do {
             let (data, _) = try await URLSession.shared.data(for: request)
             let result = try decoder.decode(PexelsResponse.self, from: data)
+            print(PexelsResponse.self)
             DispatchQueue.main.async {
                 self.images = result.photos
             }
@@ -46,33 +46,37 @@ class ImageStore: ObservableObject {
         }
     }
     
-    func downloadImage(imageUrl: String) {
+    func downloadImage(imageUrl: String, completion: @escaping (URL?) -> Void) {
         guard let url = URL(string: imageUrl) else {
+            completion(nil)
             return
         }
-        
         let task = URLSession.shared.downloadTask(with: url) { localUrl, response, error in
             if let error = error {
-                print("Error downloading image: \(error)")
+                print("Error downloading image \(error)")
+                completion(nil)
                 return
             }
-            
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                print("Error downloading image, bad response")
+                completion(nil)
+                return
+            }
             guard let localUrl = localUrl else {
-                print("Error: No local URL returned.")
+                print("Error no URL returned.")
+                completion(nil)
                 return
             }
-            
-            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             let destinationUrl = documentsDirectory.appendingPathComponent(localUrl.lastPathComponent)
             
             do {
                 try FileManager.default.moveItem(at: localUrl, to: destinationUrl)
-                DispatchQueue.main.async {
-                    self.downloadedPexelURL = destinationUrl
-                }
-                print("Successfully downloaded image")
+                completion(destinationUrl)
+                print("Image download successful") // Debug
             } catch {
                 print("Error moving downloaded file: \(error)")
+                completion(nil)
             }
         }
         
