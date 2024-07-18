@@ -12,6 +12,8 @@ struct AssetDetailView: View {
     @State private var asset: Asset?
     @State private var player: AVPlayer?
     @Binding var isAuthenticated: Bool
+    @State private var downloadButtonTitle = "Download Video"
+    @State private var isDownloaded = false
 
     var body: some View {
         VStack {
@@ -33,6 +35,24 @@ struct AssetDetailView: View {
                     .padding()
                 Text(asset.description ?? "")
                     .padding()
+                Text(asset.summary ?? "" )
+                    .padding()
+                
+                Button(action: downloadVideo) {
+                    if isDownloaded {
+                        HStack {
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundColor(.green)
+                            Text("Downloaded")
+                        }
+                    } else {
+                        HStack {
+                            Image(systemName: "arrow.down.circle")
+                            Text(downloadButtonTitle)
+                        }
+                    }
+                }
+                
             } else {
                 ProgressView("Loading...")
             }
@@ -41,11 +61,12 @@ struct AssetDetailView: View {
             fetchAssetDetail()
         }
         .toolbar {
-            
-            ToolbarItem(placement: .navigationBarLeading) {
+            ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: signOut) {
-                    Text("SIGN O")
-                
+                    HStack {
+                        Image(systemName: "person.fill")
+                        Text("Sign Out")
+                    }
                 }
             }
         }
@@ -75,6 +96,7 @@ struct AssetDetailView: View {
                         self.player = AVPlayer(url: url)
                         self.player?.play()
                     }
+                    self.downloadButtonTitle = "Download \(asset.title)"
                 }
             } catch {
                 print("Error decoding JSON: \(error)")
@@ -83,6 +105,35 @@ struct AssetDetailView: View {
                 }
             }
         }.resume()
+    }
+
+    func downloadVideo() {
+        guard let urlString = asset?.file?.url, let url = URL(string: urlString) else { return }
+        
+        let session = URLSession.shared
+        let task = session.downloadTask(with: url) { localURL, response, error in
+            guard let localURL = localURL else { return }
+
+            do {
+                let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                let destinationURL = documentsDirectory.appendingPathComponent(url.lastPathComponent)
+                
+                if FileManager.default.fileExists(atPath: destinationURL.path) {
+                    try FileManager.default.removeItem(at: destinationURL)
+                }
+
+                try FileManager.default.copyItem(at: localURL, to: destinationURL)
+                print("Video downloaded to: \(destinationURL)")
+                
+                DispatchQueue.main.async {
+                    self.isDownloaded = true
+                }
+                
+            } catch {
+                print("Error saving video: \(error)")
+            }
+        }
+        task.resume()
     }
 
     func signOut() {

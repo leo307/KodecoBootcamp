@@ -9,6 +9,7 @@ import SwiftUI
 struct LoginView: View {
     @Binding var isAuthenticated: Bool
     @State private var email = "mark@mobilelocker.com"
+    // Tried to setup my email leo@mobilelocker.com in the backend, but had an issue with permissions, so I used my boss'
     @State private var password = "test12345"
     @State private var errorMessage: String?
     

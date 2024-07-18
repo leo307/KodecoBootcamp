@@ -36,9 +36,10 @@ struct AssetListView: View {
             }
             .navigationTitle("Assets")
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: signOut) {
-                        Text("SIGN OUT")
+                        Image(systemName: "person.fill")
+                        Text("Sign Out")
                     }
                 }
             }
@@ -47,6 +48,7 @@ struct AssetListView: View {
     }
 
     func fetchAssets() {
+        let decoder = JSONDecoder()
         guard let url = URL(string: "\(API.baseURL)/api/current-user/assets"),
               let token = KeychainHelper.shared.get("authToken") else { return }
         
@@ -62,7 +64,7 @@ struct AssetListView: View {
             guard let data = data, error == nil else { return }
 
             do {
-                let json = try JSONDecoder().decode([Asset].self, from: data)
+                let json = try decoder.decode([Asset].self, from: data)
                 DispatchQueue.main.async {
                     assets = json
                 }
