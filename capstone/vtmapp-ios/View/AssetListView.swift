@@ -14,51 +14,36 @@ struct AssetListView: View {
         NavigationView {
             List(assets) { asset in
                 NavigationLink(destination: AssetDetailView(assetID: asset.id, isAuthenticated: $isAuthenticated)) {
-                    VStack(alignment: .leading, spacing: 8) {
+                    VStack(alignment: .leading) {
                         if let thumbnail = asset.thumbnail, let url = URL(string: thumbnail.url) {
                             AsyncImage(url: url) { image in
                                 image
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(maxWidth: .infinity)
-                                    .cornerRadius(8)
                             } placeholder: {
                                 ProgressView()
                             }
-                            .frame(height: 120)
-                            .padding(.bottom, 8)
                         }
-                        
                         Text(asset.title)
-                            .font(.headline)
-                            .foregroundColor(.primary)
-                            .multilineTextAlignment(.leading)
-                            .lineLimit(2)
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
-                    .padding(.vertical, 12)
+                    .padding(.vertical)
                 }
-                .buttonStyle(PlainButtonStyle())
             }
             .onAppear {
                 fetchAssets()
             }
             .navigationTitle("Assets")
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: signOut) {
                         Image(systemName: "person.fill")
-                            .renderingMode(.template)
-                            .foregroundColor(.primary)
                         Text("Sign Out")
-                            .font(.body)
-                            .foregroundColor(.primary)
                     }
                 }
             }
-            .listStyle(PlainListStyle())
-            .background(Color(.systemGroupedBackground))
+        
         }
     }
 
@@ -76,10 +61,7 @@ struct AssetListView: View {
         let session = URLSession(configuration: configuration)
         
         session.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {
-                print("Error fetching assets: \(error?.localizedDescription ?? "Unknown error")")
-                return
-            }
+            guard let data = data, error == nil else { return }
 
             do {
                 let json = try decoder.decode([Asset].self, from: data)
@@ -90,7 +72,7 @@ struct AssetListView: View {
                 print("Error decoding JSON: \(error)")
                 print("DEBUGGING CHECKPOINT")
                 if let responseBody = String(data: data, encoding: .utf8) {
-                    print("Error response \(responseBody)")
+                    print("Response Body: \(responseBody)")
                 }
             }
         }.resume()

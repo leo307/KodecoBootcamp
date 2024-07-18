@@ -17,26 +17,18 @@ struct AssetDetailView: View {
 
     var body: some View {
         VStack {
-            if let asset = asset {
-                if let player = player {
-                    VideoPlayer(player: player)
-                        .aspectRatio(contentMode: .fit)
-                        .onAppear {
-                            player.play()
+            if asset != nil {
+                TabView {
+                    VideoView(player: player)
+                        .tabItem {
+                            Label("Video", systemImage: "play.circle")
                         }
-                        .onDisappear {
-                            player.pause()
+                    
+                    AssetDetailsView(asset: asset)
+                        .tabItem {
+                            Label("Information", systemImage: "info.circle")
                         }
-                } else {
-                    ProgressView("Loading video...")
                 }
-                Text(asset.title)
-                    .font(.title)
-                    .padding()
-                Text(asset.description ?? "")
-                    .padding()
-                Text(asset.summary ?? "" )
-                    .padding()
                 
                 Button(action: downloadVideo) {
                     if isDownloaded {
@@ -54,7 +46,7 @@ struct AssetDetailView: View {
                         }
                     }
                 }
-                
+                .padding()
             } else {
                 ProgressView("Loading...")
             }
@@ -113,29 +105,39 @@ struct AssetDetailView: View {
     }
 
     func downloadVideo() {
-        guard let urlString = asset?.file?.url, let url = URL(string: urlString) else { return }
-        
+        guard let urlString = asset?.file?.url, let url = URL(string: urlString) else {
+            print("Error invalid URL")
+            return
+        }
         let session = URLSession.shared
         let task = session.downloadTask(with: url) { localURL, response, error in
-            guard let localURL = localURL else { return }
-
+            guard let localURL = localURL else {
+                if let error = error {
+                    print("Error : \(error.localizedDescription)")
+                } else {
+                    print("Error downloading")
+                }
+                return
+            }
             do {
                 let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-                let destinationURL = documentsDirectory.appendingPathComponent(url.lastPathComponent)
+                let timestamp = Int(Date().timeIntervalSince1970)
+                let uniqueFileName = "\(timestamp)_\(url.lastPathComponent)"
+                let destinationURL = documentsDirectory.appendingPathComponent(uniqueFileName)
                 
                 if FileManager.default.fileExists(atPath: destinationURL.path) {
                     try FileManager.default.removeItem(at: destinationURL)
                 }
-
                 try FileManager.default.copyItem(at: localURL, to: destinationURL)
                 print("Video downloaded to \(destinationURL)")
+                
+                print(asset ?? "")
                 
                 DispatchQueue.main.async {
                     self.isDownloaded = true
                 }
-                
             } catch {
-                print("Error saving video \(error)")
+                print("Error saving video \(error.localizedDescription)")
             }
         }
         task.resume()
