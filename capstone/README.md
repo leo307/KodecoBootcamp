@@ -10,8 +10,11 @@
 ### Functionality
 * This app functions like a media player app.
 * There is a functional login screen.
+* Uses keychain to store a logged in users token.
 * Users are presented with videos (training material) and can click from the list to get more information and watch the material.
 * Users may sign out, or download videos at any time.
+* Animated download button.
+* Looks pleasing in light or dark mode.
 
 ### Improvements
 * Overall styling, may revise and implement a more uniform design.

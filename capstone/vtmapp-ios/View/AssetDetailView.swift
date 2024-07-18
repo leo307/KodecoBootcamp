@@ -12,7 +12,7 @@ struct AssetDetailView: View {
     @State private var asset: Asset?
     @State private var player: AVPlayer?
     @Binding var isAuthenticated: Bool
-    @State private var downloadButtonTitle = "Download Video"
+    @State private var downloadButtonTitle = "Download"
     @State private var isDownloaded = false
 
     var body: some View {
@@ -48,7 +48,9 @@ struct AssetDetailView: View {
                     } else {
                         HStack {
                             Image(systemName: "arrow.down.circle")
-                            Text(downloadButtonTitle)
+                                .foregroundColor(.primary)
+                            Text("Download")
+                                .foregroundColor(.primary)
                         }
                     }
                 }
@@ -65,7 +67,10 @@ struct AssetDetailView: View {
                 Button(action: signOut) {
                     HStack {
                         Image(systemName: "person.fill")
+                            .foregroundColor(.primary)
                         Text("Sign Out")
+                            .font(.body)
+                            .foregroundColor(.primary)
                     }
                 }
             }
@@ -99,7 +104,7 @@ struct AssetDetailView: View {
                     self.downloadButtonTitle = "Download \(asset.title)"
                 }
             } catch {
-                print("Error decoding JSON: \(error)")
+                print("Error decoding JSON \(error)")
                 if let responseBody = String(data: data, encoding: .utf8) {
                     print("Error response \(responseBody)")
                 }
@@ -123,14 +128,14 @@ struct AssetDetailView: View {
                 }
 
                 try FileManager.default.copyItem(at: localURL, to: destinationURL)
-                print("Video downloaded to: \(destinationURL)")
+                print("Video downloaded to \(destinationURL)")
                 
                 DispatchQueue.main.async {
                     self.isDownloaded = true
                 }
                 
             } catch {
-                print("Error saving video: \(error)")
+                print("Error saving video \(error)")
             }
         }
         task.resume()
