@@ -14,7 +14,8 @@ struct AssetDetailView: View {
     @Binding var isAuthenticated: Bool
     @State private var downloadButtonTitle = "Download"
     @State private var isDownloaded = false
-
+    @State private var showDownloadSheet = false
+    
     var body: some View {
         VStack {
             if asset != nil {
@@ -30,23 +31,26 @@ struct AssetDetailView: View {
                         }
                 }
                 
-                Button(action: downloadVideo) {
-                    withAnimation {
+                Button(action: toggleDownload) {
+                    HStack {
                         if isDownloaded {
-                            HStack {
-                                Image(systemName: "checkmark.circle.fill")
-                                    .foregroundColor(.green)
-                                Text("Downloaded")
-                            }
-                            .transition(.opacity)
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundColor(.green)
+                                .scaleEffect(isDownloaded ? 1.2 : 1.0)
+                                .animation(.easeInOut(duration: 1.0), value: isDownloaded)
+                            Text("Downloaded")
+                                .foregroundColor(.green)
+                                .opacity(isDownloaded ? 1.0 : 0.0)
+                                .animation(.easeInOut(duration: 1.0), value: isDownloaded)
                         } else {
-                            HStack {
-                                Image(systemName: "arrow.down.circle")
-                                    .foregroundColor(.primary)
-                                Text("Download")
-                                    .foregroundColor(.primary)
-                            }
-                            .transition(.opacity)
+                            Image(systemName: "arrow.down.circle")
+                                .foregroundColor(.primary)
+                                .scaleEffect(isDownloaded ? 1.0 : 1.2)
+                                .animation(.easeInOut(duration: 1.0), value: isDownloaded)
+                            Text("Download")
+                                .foregroundColor(.primary)
+                                .opacity(isDownloaded ? 0.0 : 1.0)
+                                .animation(.easeInOut(duration: 1.0), value: isDownloaded)
                         }
                     }
                 }
@@ -71,8 +75,20 @@ struct AssetDetailView: View {
                 }
             }
         }
+        .sheet(isPresented: $showDownloadSheet) {
+            VStack {
+                Image(systemName: "checkmark.circle.fill")
+                    .font(.largeTitle)
+                    .foregroundColor(.green)
+                Text("Download Complete")
+                    .font(.title2)
+                    .foregroundColor(.green)
+                Text("Downloaded to documents folder.")
+            }
+            .padding()
+        }
     }
-
+    
     func fetchAssetDetail() {
         let decoder = JSONDecoder()
         guard let url = URL(string: "\(API.baseURL)/api/assets/\(assetID)"),
@@ -107,7 +123,7 @@ struct AssetDetailView: View {
             }
         }.resume()
     }
-
+    
     func downloadVideo() {
         guard let urlString = asset?.file?.url, let url = URL(string: urlString) else {
             print("Error invalid URL")
@@ -135,10 +151,10 @@ struct AssetDetailView: View {
                 try FileManager.default.copyItem(at: localURL, to: destinationURL)
                 print("Video downloaded to \(destinationURL)")
                 
-                print(asset ?? "") // Debugging
-                
                 DispatchQueue.main.async {
                     self.isDownloaded = true
+                    self.showDownloadSheet = true
+                    closeSheet()
                 }
             } catch {
                 print("Error saving video \(error.localizedDescription)")
@@ -146,9 +162,21 @@ struct AssetDetailView: View {
         }
         task.resume()
     }
-
+    
+    func closeSheet() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.showDownloadSheet = false
+        }
+    }
+    
     func signOut() {
         KeychainHelper.shared.delete("authToken")
         isAuthenticated = false
+    }
+    
+    func toggleDownload() {
+        withAnimation {
+            downloadVideo()
+        }
     }
 }
