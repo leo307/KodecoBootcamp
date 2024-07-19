@@ -15,28 +15,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="obG-Y5-kRd">
-                                <rect key="frame" x="0.0" y="832" width="393" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="VTMApp" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="GJd-Yh-RWb">
-                                <rect key="frame" x="123" y="172" width="147" height="43"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="LaunchBackgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="9JM-hh-yNL">
+                                <rect key="frame" x="-130" y="0.0" width="653" height="852"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="AppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="0qR-XM-RlA">
+                                <rect key="frame" x="0.0" y="354" width="393" height="144"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="144" id="85g-Uq-JB4"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="144" id="B20-Gy-8gL"/>
+                                    <constraint firstAttribute="width" constant="393" id="qEO-EW-Yey"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="5cz-MP-9tL"/>
-                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="GJd-Yh-RWb" secondAttribute="centerX" id="Q3B-4B-g5h"/>
-                            <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" symbolic="YES" id="SfN-ll-jLj"/>
-                            <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" id="Y44-ml-fuU"/>
-                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="bottom" multiplier="1/3" constant="1" id="moa-c2-u7t"/>
-                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" symbolic="YES" id="x7j-FC-K8j"/>
+                            <constraint firstAttribute="bottom" secondItem="9JM-hh-yNL" secondAttribute="bottom" id="3ZJ-Ag-Dey"/>
+                            <constraint firstAttribute="trailing" secondItem="9JM-hh-yNL" secondAttribute="trailing" constant="-130" id="5O6-Qp-xif"/>
+                            <constraint firstItem="0qR-XM-RlA" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="295" id="D6X-3T-zP0"/>
+                            <constraint firstItem="9JM-hh-yNL" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="HAp-t8-rQ3"/>
+                            <constraint firstItem="9JM-hh-yNL" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-130" id="Lle-9L-ZFc"/>
+                            <constraint firstItem="0qR-XM-RlA" firstAttribute="trailing" secondItem="Bcu-3y-fUS" secondAttribute="trailing" id="T0w-xq-qPb"/>
+                            <constraint firstItem="0qR-XM-RlA" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" id="bJJ-7t-aSn"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="0qR-XM-RlA" secondAttribute="bottom" constant="320" id="lCj-Mh-Ygs"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -46,4 +47,8 @@
         </scene>
     </scenes>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+    <resources>
+        <image name="AppLogo" width="1000" height="492"/>
+        <image name="LaunchBackgroundImage" width="455" height="676"/>
+    </resources>
 </document>
