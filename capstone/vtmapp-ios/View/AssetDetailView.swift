@@ -31,18 +31,22 @@ struct AssetDetailView: View {
                 }
                 
                 Button(action: downloadVideo) {
-                    if isDownloaded {
-                        HStack {
-                            Image(systemName: "checkmark.circle.fill")
-                                .foregroundColor(.green)
-                            Text("Downloaded")
-                        }
-                    } else {
-                        HStack {
-                            Image(systemName: "arrow.down.circle")
-                                .foregroundColor(.primary)
-                            Text("Download")
-                                .foregroundColor(.primary)
+                    withAnimation {
+                        if isDownloaded {
+                            HStack {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundColor(.green)
+                                Text("Downloaded")
+                            }
+                            .transition(.opacity)
+                        } else {
+                            HStack {
+                                Image(systemName: "arrow.down.circle")
+                                    .foregroundColor(.primary)
+                                Text("Download")
+                                    .foregroundColor(.primary)
+                            }
+                            .transition(.opacity)
                         }
                     }
                 }
@@ -131,7 +135,7 @@ struct AssetDetailView: View {
                 try FileManager.default.copyItem(at: localURL, to: destinationURL)
                 print("Video downloaded to \(destinationURL)")
                 
-                print(asset ?? "")
+                print(asset ?? "") // Debugging
                 
                 DispatchQueue.main.async {
                     self.isDownloaded = true

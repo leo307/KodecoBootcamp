@@ -19,8 +19,20 @@
 		1E1AB4502C3C80910045180B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1AB44F2C3C80910045180B /* Constants.swift */; };
 		59A216AA2C49D98B0050C66C /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A216A92C49D98B0050C66C /* VideoView.swift */; };
 		59A216AC2C49D9D70050C66C /* AssetDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A216AB2C49D9D70050C66C /* AssetDetailsView.swift */; };
+		59A216B62C49E9CF0050C66C /* vtmapp_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A216B52C49E9CF0050C66C /* vtmapp_iosTests.swift */; };
+		59A216C12C49EBBE0050C66C /* Unit Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A216BC2C49EA830050C66C /* Unit Tests.swift */; };
 		59C5401F2C44936000E83C5F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59C5401E2C44936000E83C5F /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		59A216B72C49E9CF0050C66C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1E1AB4242C3C774A0045180B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E1AB42B2C3C774A0045180B;
+			remoteInfo = "vtmapp-ios";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1E1AB42C2C3C774A0045180B /* vtmapp-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "vtmapp-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,11 +49,22 @@
 		1E1AB44F2C3C80910045180B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		59A216A92C49D98B0050C66C /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		59A216AB2C49D9D70050C66C /* AssetDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailsView.swift; sourceTree = "<group>"; };
+		59A216AE2C49E7870050C66C /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
+		59A216B32C49E9CF0050C66C /* vtmapp-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "vtmapp-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		59A216B52C49E9CF0050C66C /* vtmapp_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vtmapp_iosTests.swift; sourceTree = "<group>"; };
+		59A216BC2C49EA830050C66C /* Unit Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Unit Tests.swift"; sourceTree = "<group>"; };
 		59C5401E2C44936000E83C5F /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1E1AB4292C3C774A0045180B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59A216B02C49E9CF0050C66C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -64,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				1E1AB42C2C3C774A0045180B /* vtmapp-ios.app */,
+				59A216B32C49E9CF0050C66C /* vtmapp-iosTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				1E1AB4372C3C774B0045180B /* vtmapp_ios.entitlements */,
+				59A216B42C49E9CF0050C66C /* vtmapp-iosTests */,
 				59A216AD2C49DA880050C66C /* Utils */,
 				59C5401D2C44925700E83C5F /* View */,
 				59C5401C2C44923700E83C5F /* Model */,
@@ -96,6 +121,16 @@
 				1E1AB4422C3C78E50045180B /* KeychainHelper.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		59A216B42C49E9CF0050C66C /* vtmapp-iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				59A216AE2C49E7870050C66C /* TestPlan.xctestplan */,
+				59A216BC2C49EA830050C66C /* Unit Tests.swift */,
+				59A216B52C49E9CF0050C66C /* vtmapp_iosTests.swift */,
+			);
+			path = "vtmapp-iosTests";
 			sourceTree = "<group>";
 		};
 		59C5401C2C44923700E83C5F /* Model */ = {
@@ -140,6 +175,24 @@
 			productReference = 1E1AB42C2C3C774A0045180B /* vtmapp-ios.app */;
 			productType = "com.apple.product-type.application";
 		};
+		59A216B22C49E9CF0050C66C /* vtmapp-iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 59A216B92C49E9CF0050C66C /* Build configuration list for PBXNativeTarget "vtmapp-iosTests" */;
+			buildPhases = (
+				59A216AF2C49E9CF0050C66C /* Sources */,
+				59A216B02C49E9CF0050C66C /* Frameworks */,
+				59A216B12C49E9CF0050C66C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				59A216B82C49E9CF0050C66C /* PBXTargetDependency */,
+			);
+			name = "vtmapp-iosTests";
+			productName = "vtmapp-iosTests";
+			productReference = 59A216B32C49E9CF0050C66C /* vtmapp-iosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -152,6 +205,10 @@
 				TargetAttributes = {
 					1E1AB42B2C3C774A0045180B = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					59A216B22C49E9CF0050C66C = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 1E1AB42B2C3C774A0045180B;
 					};
 				};
 			};
@@ -169,6 +226,7 @@
 			projectRoot = "";
 			targets = (
 				1E1AB42B2C3C774A0045180B /* vtmapp-ios */,
+				59A216B22C49E9CF0050C66C /* vtmapp-iosTests */,
 			);
 		};
 /* End PBXProject section */
@@ -181,6 +239,13 @@
 				59C5401F2C44936000E83C5F /* Launch Screen.storyboard in Resources */,
 				1E1AB43A2C3C774B0045180B /* Preview Assets.xcassets in Resources */,
 				1E1AB4362C3C774B0045180B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59A216B12C49E9CF0050C66C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +269,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		59A216AF2C49E9CF0050C66C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59A216C12C49EBBE0050C66C /* Unit Tests.swift in Sources */,
+				59A216B62C49E9CF0050C66C /* vtmapp_iosTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		59A216B82C49E9CF0050C66C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1E1AB42B2C3C774A0045180B /* vtmapp-ios */;
+			targetProxy = 59A216B72C49E9CF0050C66C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1E1AB43B2C3C774B0045180B /* Debug */ = {
@@ -401,6 +483,45 @@
 			};
 			name = Release;
 		};
+		59A216BA2C49E9CF0050C66C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B28V875DV5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.leo.vtmapp-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vtmapp-ios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/vtmapp-ios";
+			};
+			name = Debug;
+		};
+		59A216BB2C49E9CF0050C66C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B28V875DV5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.leo.vtmapp-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vtmapp-ios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/vtmapp-ios";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -418,6 +539,15 @@
 			buildConfigurations = (
 				1E1AB43E2C3C774B0045180B /* Debug */,
 				1E1AB43F2C3C774B0045180B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		59A216B92C49E9CF0050C66C /* Build configuration list for PBXNativeTarget "vtmapp-iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59A216BA2C49E9CF0050C66C /* Debug */,
+				59A216BB2C49E9CF0050C66C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

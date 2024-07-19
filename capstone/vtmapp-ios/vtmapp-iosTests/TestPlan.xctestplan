@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "884D5242-9CF3-44D9-8868-99771FB43328",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:vtmapp-ios.xcodeproj",
+        "identifier" : "59A216B22C49E9CF0050C66C",
+        "name" : "vtmapp-iosTests"
+      }
+    }
+  ],
+  "version" : 1
+}
