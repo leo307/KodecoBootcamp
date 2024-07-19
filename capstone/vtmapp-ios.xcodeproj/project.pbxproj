@@ -23,6 +23,8 @@
 		596172D12C4A0ABD0066E132 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 596172D02C4A0ABD0066E132 /* Launch Screen.storyboard */; };
 		59A216AA2C49D98B0050C66C /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A216A92C49D98B0050C66C /* VideoView.swift */; };
 		59A216AC2C49D9D70050C66C /* AssetDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A216AB2C49D9D70050C66C /* AssetDetailsView.swift */; };
+		59FD321A2C4A14FA0000728F /* KeychainHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FD32192C4A14FA0000728F /* KeychainHelperTests.swift */; };
+		59FD321C2C4A15940000728F /* APIurlTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FD321B2C4A15940000728F /* APIurlTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		59A216AB2C49D9D70050C66C /* AssetDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailsView.swift; sourceTree = "<group>"; };
 		59A216AE2C49E7870050C66C /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		59A216B32C49E9CF0050C66C /* vtmapp-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "vtmapp-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		59FD32192C4A14FA0000728F /* KeychainHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelperTests.swift; sourceTree = "<group>"; };
+		59FD321B2C4A15940000728F /* APIurlTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIurlTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,8 @@
 				59A216AE2C49E7870050C66C /* TestPlan.xctestplan */,
 				596172C82C49F9880066E132 /* LoginUnitTests.swift */,
 				596172CB2C49FB680066E132 /* AssetUnitTests.swift */,
+				59FD32192C4A14FA0000728F /* KeychainHelperTests.swift */,
+				59FD321B2C4A15940000728F /* APIurlTest.swift */,
 			);
 			path = "vtmapp-iosTests";
 			sourceTree = "<group>";
@@ -287,8 +293,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59FD321C2C4A15940000728F /* APIurlTest.swift in Sources */,
 				596172CC2C49FB680066E132 /* AssetUnitTests.swift in Sources */,
 				596172C92C49F9880066E132 /* LoginUnitTests.swift in Sources */,
+				59FD321A2C4A14FA0000728F /* KeychainHelperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
