@@ -11,19 +11,32 @@ struct VideoView: View {
     let player: AVPlayer?
     
     var body: some View {
-        VStack {
-            if let player = player {
-                VideoPlayer(player: player)
-                    .aspectRatio(contentMode: .fit)
-                    .onAppear {
-                        player.play()
+        GeometryReader { geometry in
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    if let player = player {
+                        VideoPlayer(player: player)
+                            .aspectRatio(16/9, contentMode: .fit)
+                            .frame(width: min(geometry.size.width * 0.9, 800), height: min(geometry.size.height * 0.9, 450))
+                            .onAppear {
+                                player.play()
+                            }
+                            .onDisappear {
+                                player.pause()
+                            }
+                    } else {
+                        ProgressView("Loading video please be patient.")
+                            .frame(width: min(geometry.size.width * 0.9, 800), height: min(geometry.size.height * 0.9, 450))
                     }
-                    .onDisappear {
-                        player.pause()
-                    }
-            } else {
-                ProgressView("Loading video...")
+                    Spacer()
+                }
+                Spacer()
             }
+            .padding()
+            .background(Color.black)
+            .edgesIgnoringSafeArea(.all)
         }
     }
 }
