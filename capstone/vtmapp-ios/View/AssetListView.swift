@@ -14,21 +14,35 @@ struct AssetListView: View {
         NavigationView {
             List(assets) { asset in
                 NavigationLink(destination: AssetDetailView(assetID: asset.id, isAuthenticated: $isAuthenticated)) {
-                    VStack(alignment: .leading) {
+                    HStack {
                         if let thumbnail = asset.thumbnail, let url = URL(string: thumbnail.url) {
                             AsyncImage(url: url) { image in
                                 image
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                    .frame(maxWidth: .infinity)
+                                    .frame(width: 100, height: 75)
                             } placeholder: {
                                 ProgressView()
+                                    .frame(width: 100, height: 75)
                             }
+                        } else {
+                            Color.gray
+                                .frame(width: 100, height: 75)
                         }
-                        Text(asset.title)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        VStack(alignment: .leading) {
+                            Text(asset.title)
+                                .font(.headline)
+                                .lineLimit(1)
+                            Text("ID: \(asset.id)")
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                        }
+                        .padding(.leading, 10)
+                        
+                        Spacer()
                     }
-                    .padding(.vertical)
+                    .padding(.vertical, 5)
                 }
             }
             .onAppear {
@@ -38,12 +52,13 @@ struct AssetListView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: signOut) {
-                        Image(systemName: "person.fill")
-                        Text("Sign Out")
+                        HStack {
+                            Image(systemName: "person.fill")
+                            Text("Sign Out")
+                        }
                     }
                 }
             }
-        
         }
     }
 
@@ -70,7 +85,6 @@ struct AssetListView: View {
                 }
             } catch {
                 print("Error decoding JSON: \(error)")
-                print("DEBUGGING CHECKPOINT")
                 if let responseBody = String(data: data, encoding: .utf8) {
                     print("Response Body: \(responseBody)")
                 }
