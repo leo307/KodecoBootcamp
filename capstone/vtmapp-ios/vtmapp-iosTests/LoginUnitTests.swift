@@ -1,5 +1,5 @@
 //
-//  Unit Tests.swift
+//  LoginUnitTests.swift
 //  vtmapp-iosTests
 //
 //  Created by Leo DelPrete on 7/18/24.
@@ -68,7 +68,7 @@ class LoginViewModel: ObservableObject {
 import XCTest
 @testable import vtmapp_ios
 
-class LoginViewModelTests: XCTestCase {
+class LoginTests: XCTestCase {
     var viewModel: LoginViewModel!
 
     override func setUp() {
