@@ -55,6 +55,8 @@ struct AssetDetailView: View {
                     }
                 }
                 .padding()
+                .disabled(isDownloaded)
+                .opacity(isDownloaded ? 0.5 : 1.0)
             } else {
                 ProgressView("Loading...")
             }
@@ -83,7 +85,6 @@ struct AssetDetailView: View {
                 Text("Download Complete")
                     .font(.title2)
                     .foregroundColor(.green)
-                Text("Downloaded to documents folder.")
             }
             .padding()
         }
@@ -154,7 +155,7 @@ struct AssetDetailView: View {
                 DispatchQueue.main.async {
                     self.isDownloaded = true
                     self.showDownloadSheet = true
-                    closeSheet()
+                    dismissSheet()
                 }
             } catch {
                 print("Error saving video \(error.localizedDescription)")
@@ -163,8 +164,8 @@ struct AssetDetailView: View {
         task.resume()
     }
     
-    func closeSheet() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+    func dismissSheet() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.6) {
             self.showDownloadSheet = false
         }
     }
@@ -175,8 +176,10 @@ struct AssetDetailView: View {
     }
     
     func toggleDownload() {
-        withAnimation {
-            downloadVideo()
+        if !isDownloaded {
+            withAnimation {
+                downloadVideo()
+            }
         }
     }
 }
