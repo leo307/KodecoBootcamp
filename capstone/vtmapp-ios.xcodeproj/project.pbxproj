@@ -20,9 +20,9 @@
 		5916D7672C49F8A000F17EE5 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5916D7662C49F8A000F17EE5 /* MockURLProtocol.swift */; };
 		596172C92C49F9880066E132 /* LoginUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596172C82C49F9880066E132 /* LoginUnitTests.swift */; };
 		596172CC2C49FB680066E132 /* AssetUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596172CB2C49FB680066E132 /* AssetUnitTests.swift */; };
+		596172D12C4A0ABD0066E132 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 596172D02C4A0ABD0066E132 /* Launch Screen.storyboard */; };
 		59A216AA2C49D98B0050C66C /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A216A92C49D98B0050C66C /* VideoView.swift */; };
 		59A216AC2C49D9D70050C66C /* AssetDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A216AB2C49D9D70050C66C /* AssetDetailsView.swift */; };
-		59C5401F2C44936000E83C5F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59C5401E2C44936000E83C5F /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,11 +51,12 @@
 		5916D7662C49F8A000F17EE5 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		596172C82C49F9880066E132 /* LoginUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUnitTests.swift; sourceTree = "<group>"; };
 		596172CB2C49FB680066E132 /* AssetUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetUnitTests.swift; sourceTree = "<group>"; };
+		596172CF2C4A09A80066E132 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		596172D02C4A0ABD0066E132 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		59A216A92C49D98B0050C66C /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		59A216AB2C49D9D70050C66C /* AssetDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailsView.swift; sourceTree = "<group>"; };
 		59A216AE2C49E7870050C66C /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		59A216B32C49E9CF0050C66C /* vtmapp-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "vtmapp-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		59C5401E2C44936000E83C5F /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +80,6 @@
 		1E1AB4232C3C774A0045180B = {
 			isa = PBXGroup;
 			children = (
-				59C5401E2C44936000E83C5F /* Launch Screen.storyboard */,
 				1E1AB42E2C3C774A0045180B /* vtmapp-ios */,
 				1E1AB42D2C3C774A0045180B /* Products */,
 			);
@@ -97,6 +97,7 @@
 		1E1AB42E2C3C774A0045180B /* vtmapp-ios */ = {
 			isa = PBXGroup;
 			children = (
+				596172CF2C4A09A80066E132 /* Info.plist */,
 				1E1AB4372C3C774B0045180B /* vtmapp_ios.entitlements */,
 				59A216B42C49E9CF0050C66C /* vtmapp-iosTests */,
 				59A216AD2C49DA880050C66C /* Utils */,
@@ -104,6 +105,7 @@
 				59C5401C2C44923700E83C5F /* Model */,
 				1E1AB42F2C3C774A0045180B /* VTMApp.swift */,
 				1E1AB4352C3C774B0045180B /* Assets.xcassets */,
+				596172D02C4A0ABD0066E132 /* Launch Screen.storyboard */,
 				1E1AB4382C3C774B0045180B /* Preview Content */,
 			);
 			path = "vtmapp-ios";
@@ -247,7 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59C5401F2C44936000E83C5F /* Launch Screen.storyboard in Resources */,
+				596172D12C4A0ABD0066E132 /* Launch Screen.storyboard in Resources */,
 				1E1AB43A2C3C774B0045180B /* Preview Assets.xcassets in Resources */,
 				1E1AB4362C3C774B0045180B /* Assets.xcassets in Resources */,
 			);
@@ -430,12 +432,14 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "vtmapp-ios/Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -469,12 +473,14 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "vtmapp-ios/Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

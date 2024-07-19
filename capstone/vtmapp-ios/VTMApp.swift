@@ -15,6 +15,7 @@ struct VTMApp: App {
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
         do {
+            sleep(2)
             return try ModelContainer(for: schema, configurations: [modelConfiguration])
         } catch {
             fatalError("Error : \(error)")
