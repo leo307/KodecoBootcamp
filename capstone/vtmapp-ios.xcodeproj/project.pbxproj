@@ -181,6 +181,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1E1AB43D2C3C774B0045180B /* Build configuration list for PBXNativeTarget "vtmapp-ios" */;
 			buildPhases = (
+				591E55F32C4AB711004581DD /* ShellScript */,
 				1E1AB4282C3C774A0045180B /* Sources */,
 				1E1AB4292C3C774A0045180B /* Frameworks */,
 				1E1AB42A2C3C774A0045180B /* Resources */,
@@ -269,6 +270,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		591E55F32C4AB711004581DD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nPATH=/opt/homebrew/bin:$PATH\nif [ -f ~/com.raywenderlich.swiftlint.yml ]; then\n  if which swiftlint >/dev/null; then\n    swiftlint --no-cache --config ~/com.raywenderlich.swiftlint.yml\n  fi\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1E1AB4282C3C774A0045180B /* Sources */ = {
