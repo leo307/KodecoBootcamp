@@ -20,7 +20,7 @@ struct AssetDetailView: View {
         VStack {
             if asset != nil {
                 TabView {
-                    VideoView(player: player)
+                    VideoView(player: player, asset: asset)
                         .tabItem {
                             Label("Video", systemImage: "play.circle")
                         }
