@@ -22,5 +22,7 @@
 * Would like to add comments, shares, likes dislikes, and views, to the video page.
 
 ### Miscellenous
+* **Update as of 07/18/24** Please see the additional document included in google drive with this project named "READBEFORERUN.md"
 * Username & password on the login screen are linked with a live database in which the password has been changed for the sake of the project. As of 07/17/24 the values have been prefilled so no typing of the username & password is necessary, this may change to a more secure method in the future, but works for the sake of the project.
 * You'll find that if you open the app and login once, you will not be asked to do so again when closing and reopening the app, that is because a unique token is stored in the users keychain.
+

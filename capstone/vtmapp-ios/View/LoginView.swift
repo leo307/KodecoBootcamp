@@ -8,8 +8,8 @@ import SwiftUI
 
 struct LoginView: View {
     @Binding var isAuthenticated: Bool
-    @State private var email = "leo@mobilelocker.com"
-    @State private var password = "test12345"
+    @State private var email = ""
+    @State private var password = ""
     @State private var errorMessage: String?
     
     var body: some View {
@@ -41,6 +41,7 @@ struct LoginView: View {
     }
     
     func login() {
+        let decoder = JSONDecoder()
         guard let url = URL(string: "\(API.baseURL)/login") else { return }
         errorMessage = nil
         var request = URLRequest(url: url)
@@ -75,7 +76,7 @@ struct LoginView: View {
             }
             
             do {
-                let loginResponse = try JSONDecoder().decode(LoginResponse.self, from: data)
+                let loginResponse = try decoder.decode(LoginResponse.self, from: data)
                 KeychainHelper.shared.save(loginResponse.token, forKey: "authToken")
                 DispatchQueue.main.async {
                     isAuthenticated = true
@@ -86,7 +87,7 @@ struct LoginView: View {
                     print("Error response \(responseBody)")
                 }
                 DispatchQueue.main.async {
-                    self.errorMessage = "Error failed to parse response."
+                    self.errorMessage = "Error in submitted details."
                 }
             }
         }.resume()

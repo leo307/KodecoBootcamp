@@ -27,7 +27,7 @@ struct VideoView: View {
                                 player.pause()
                             }
                     } else {
-                        ProgressView("Loading video please be patient.")
+                        ProgressView("Loading asset video please be patient.")
                             .frame(width: min(geometry.size.width * 0.9, 800), height: min(geometry.size.height * 0.9, 450))
                     }
                     Spacer()

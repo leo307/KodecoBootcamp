@@ -26,11 +26,11 @@ struct AssetDetailsView: View {
                 if let watchURL = asset.watchURL, let url = URL(string: watchURL) {
                     HStack{
                     Text("Watch URL : ")
-                    Link(asset.watchURL ?? "Watch URL could not be found.", destination: url)
+                    Link(asset.watchURL ?? "Watch URL not given or not available for this asset.", destination: url)
                         .multilineTextAlignment(.center)
                     }
                 } else {
-                    Text("Watch URL not available for this asset.")
+                    Text("Watch URL not given or not available for this asset.")
                         .multilineTextAlignment(.center)
                 }
                 Spacer().frame(height: 20)
@@ -41,7 +41,7 @@ struct AssetDetailsView: View {
                     .multilineTextAlignment(.center)
 
             } else {
-                ProgressView("Loading...")
+                ProgressView("Loading asset information please be patient.")
             }
         }
         .padding()

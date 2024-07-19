@@ -19,9 +19,9 @@
 		1E1AB4502C3C80910045180B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1AB44F2C3C80910045180B /* Constants.swift */; };
 		5916D7672C49F8A000F17EE5 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5916D7662C49F8A000F17EE5 /* MockURLProtocol.swift */; };
 		596172C92C49F9880066E132 /* LoginUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596172C82C49F9880066E132 /* LoginUnitTests.swift */; };
+		596172CC2C49FB680066E132 /* AssetUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596172CB2C49FB680066E132 /* AssetUnitTests.swift */; };
 		59A216AA2C49D98B0050C66C /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A216A92C49D98B0050C66C /* VideoView.swift */; };
 		59A216AC2C49D9D70050C66C /* AssetDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A216AB2C49D9D70050C66C /* AssetDetailsView.swift */; };
-		59A216B62C49E9CF0050C66C /* vtmapp_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A216B52C49E9CF0050C66C /* vtmapp_iosTests.swift */; };
 		59C5401F2C44936000E83C5F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59C5401E2C44936000E83C5F /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -50,11 +50,11 @@
 		1E1AB44F2C3C80910045180B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5916D7662C49F8A000F17EE5 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		596172C82C49F9880066E132 /* LoginUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUnitTests.swift; sourceTree = "<group>"; };
+		596172CB2C49FB680066E132 /* AssetUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetUnitTests.swift; sourceTree = "<group>"; };
 		59A216A92C49D98B0050C66C /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		59A216AB2C49D9D70050C66C /* AssetDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailsView.swift; sourceTree = "<group>"; };
 		59A216AE2C49E7870050C66C /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		59A216B32C49E9CF0050C66C /* vtmapp-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "vtmapp-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		59A216B52C49E9CF0050C66C /* vtmapp_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vtmapp_iosTests.swift; sourceTree = "<group>"; };
 		59C5401E2C44936000E83C5F /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,8 +138,8 @@
 			children = (
 				596172CA2C49F9FA0066E132 /* Mocks */,
 				59A216AE2C49E7870050C66C /* TestPlan.xctestplan */,
-				59A216B52C49E9CF0050C66C /* vtmapp_iosTests.swift */,
 				596172C82C49F9880066E132 /* LoginUnitTests.swift */,
+				596172CB2C49FB680066E132 /* AssetUnitTests.swift */,
 			);
 			path = "vtmapp-iosTests";
 			sourceTree = "<group>";
@@ -285,7 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59A216B62C49E9CF0050C66C /* vtmapp_iosTests.swift in Sources */,
+				596172CC2C49FB680066E132 /* AssetUnitTests.swift in Sources */,
 				596172C92C49F9880066E132 /* LoginUnitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

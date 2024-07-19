@@ -84,9 +84,9 @@ struct AssetListView: View {
                     assets = json
                 }
             } catch {
-                print("Error decoding JSON: \(error)")
+                print("Error \(error)")
                 if let responseBody = String(data: data, encoding: .utf8) {
-                    print("Response Body: \(responseBody)")
+                    print("Error response \(responseBody)")
                 }
             }
         }.resume()
