@@ -14,6 +14,7 @@ struct LoginView: View {
     
     var body: some View {
         VStack {
+            Image("LoginScreen")
             TextField("Email", text: $email)
                 .autocapitalization(.none)
                 .padding()

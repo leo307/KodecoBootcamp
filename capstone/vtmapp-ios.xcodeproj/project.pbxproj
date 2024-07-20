@@ -18,6 +18,7 @@
 		1E1AB44C2C3C7AC30045180B /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1AB44B2C3C7AC30045180B /* Asset.swift */; };
 		1E1AB4502C3C80910045180B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1AB44F2C3C80910045180B /* Constants.swift */; };
 		5916D7672C49F8A000F17EE5 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5916D7662C49F8A000F17EE5 /* MockURLProtocol.swift */; };
+		595F93062C4C49710090CC8F /* com.raywenderlich.swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 595F93052C4C49710090CC8F /* com.raywenderlich.swiftlint.yml */; };
 		596172C92C49F9880066E132 /* LoginUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596172C82C49F9880066E132 /* LoginUnitTests.swift */; };
 		596172CC2C49FB680066E132 /* AssetUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596172CB2C49FB680066E132 /* AssetUnitTests.swift */; };
 		596172D12C4A0ABD0066E132 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 596172D02C4A0ABD0066E132 /* Launch Screen.storyboard */; };
@@ -51,6 +52,7 @@
 		1E1AB44B2C3C7AC30045180B /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
 		1E1AB44F2C3C80910045180B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5916D7662C49F8A000F17EE5 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		595F93052C4C49710090CC8F /* com.raywenderlich.swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = com.raywenderlich.swiftlint.yml; path = "../../../../../../Mobile Locker Dropbox/Leo DelPrete/Mac/Desktop/com.raywenderlich.swiftlint.yml"; sourceTree = "<group>"; };
 		596172C82C49F9880066E132 /* LoginUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUnitTests.swift; sourceTree = "<group>"; };
 		596172CB2C49FB680066E132 /* AssetUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetUnitTests.swift; sourceTree = "<group>"; };
 		596172CF2C4A09A80066E132 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		1E1AB42E2C3C774A0045180B /* vtmapp-ios */ = {
 			isa = PBXGroup;
 			children = (
+				595F93052C4C49710090CC8F /* com.raywenderlich.swiftlint.yml */,
 				596172CF2C4A09A80066E132 /* Info.plist */,
 				1E1AB4372C3C774B0045180B /* vtmapp_ios.entitlements */,
 				59A216B42C49E9CF0050C66C /* vtmapp-iosTests */,
@@ -181,7 +184,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1E1AB43D2C3C774B0045180B /* Build configuration list for PBXNativeTarget "vtmapp-ios" */;
 			buildPhases = (
-				591E55F32C4AB711004581DD /* ShellScript */,
+				591E55F32C4AB711004581DD /* Run Script */,
 				1E1AB4282C3C774A0045180B /* Sources */,
 				1E1AB4292C3C774A0045180B /* Frameworks */,
 				1E1AB42A2C3C774A0045180B /* Resources */,
@@ -259,6 +262,7 @@
 				596172D12C4A0ABD0066E132 /* Launch Screen.storyboard in Resources */,
 				1E1AB43A2C3C774B0045180B /* Preview Assets.xcassets in Resources */,
 				1E1AB4362C3C774B0045180B /* Assets.xcassets in Resources */,
+				595F93062C4C49710090CC8F /* com.raywenderlich.swiftlint.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +276,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		591E55F32C4AB711004581DD /* ShellScript */ = {
+		591E55F32C4AB711004581DD /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -281,13 +285,14 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nPATH=/opt/homebrew/bin:$PATH\nif [ -f ~/com.raywenderlich.swiftlint.yml ]; then\n  if which swiftlint >/dev/null; then\n    swiftlint --no-cache --config ~/com.raywenderlich.swiftlint.yml\n  fi\nfi\n";
+			shellScript = "if which swiftlint > /dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

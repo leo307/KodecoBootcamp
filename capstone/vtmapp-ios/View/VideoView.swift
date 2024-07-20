@@ -15,7 +15,6 @@ struct VideoView: View {
         GeometryReader { geometry in
             VStack {
                 Spacer()
-                
                 if let player = player {
                     VStack {
                         VideoPlayer(player: player)
