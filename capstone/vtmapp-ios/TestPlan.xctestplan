@@ -18,6 +18,13 @@
         "identifier" : "59A216B22C49E9CF0050C66C",
         "name" : "vtmapp-iosTests"
       }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:vtmapp-ios.xcodeproj",
+        "identifier" : "591BC99A2C5157C5003F91CB",
+        "name" : "vtmapp-iosUITests"
+      }
     }
   ],
   "version" : 1

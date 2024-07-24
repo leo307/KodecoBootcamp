@@ -26,7 +26,8 @@ struct VideoView: View {
                             .onDisappear {
                                 player.pause()
                             }
-                        
+                            .accessibilityIdentifier("videoPlayer")
+
                         if let watchURL = asset?.watchURL {
                             ShareLink(item: watchURL) {
                                 HStack {
@@ -41,16 +42,19 @@ struct VideoView: View {
                                 .cornerRadius(8)
                             }
                             .padding(.top, 10)
+                            .accessibilityIdentifier("shareButton")
                         } else {
                             Text("Share link could not be loaded")
                                 .foregroundColor(.red)
                                 .padding(.top, 10)
+                                .accessibilityIdentifier("errorMessage")
                         }
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 } else {
                     ProgressView("Loading asset video please be patient.")
                         .frame(width: min(geometry.size.width * 0.9, 800), height: min(geometry.size.height * 0.6, 450))
+                        .accessibilityIdentifier("loadingIndicator")
                 }
                 
                 Spacer()

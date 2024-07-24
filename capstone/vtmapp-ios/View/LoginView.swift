@@ -2,33 +2,39 @@
 //  vtmapp_iosApp.swift
 //  vtmapp-ios
 //
-//  Created by Leo Delprete on 7/8/24.
+//  Created by Leo DelPrete on 7/8/24.
 //
 import SwiftUI
 
 struct LoginView: View {
+    @StateObject private var viewModel = LoginViewModel()
     @Binding var isAuthenticated: Bool
-    @State private var email = ""
-    @State private var password = ""
-    @State private var errorMessage: String?
-    
+
     var body: some View {
         VStack {
             Image("LoginScreen")
-            TextField("Email", text: $email)
+            TextField("Email", text: $viewModel.email)
                 .autocapitalization(.none)
                 .padding()
                 .background(Color(.secondarySystemBackground))
                 .cornerRadius(5.0)
-            SecureField("Password", text: $password)
+                .accessibilityIdentifier("emailField")
+            SecureField("Password", text: $viewModel.password)
                 .padding()
                 .background(Color(.secondarySystemBackground))
                 .cornerRadius(5.0)
-            if let errorMessage = errorMessage {
+                .accessibilityIdentifier("passwordField")
+            if let errorMessage = viewModel.errorMessage {
                 Text(errorMessage)
                     .foregroundColor(.red)
+                    .accessibilityIdentifier("errorMessage")
             }
-            Button(action: login) {
+            Button(action: {
+                Task {
+                    await viewModel.login()
+                    isAuthenticated = viewModel.isAuthenticated
+                }
+            }) {
                 Text("SIGN IN")
                     .foregroundColor(.white)
                     .padding()
@@ -37,65 +43,8 @@ struct LoginView: View {
                     .cornerRadius(5.0)
             }
             .padding(.top, 20)
+            .accessibilityIdentifier("signInButton")
         }
         .padding()
     }
-    
-    func login() {
-        let decoder = JSONDecoder()
-        guard let url = URL(string: "\(API.baseURL)/login") else { return }
-        errorMessage = nil
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        
-        let body: [String: String] = [
-            "email": email,
-            "password": password
-        ]
-        
-        request.httpBody = try? JSONSerialization.data(withJSONObject: body)
-        
-        let configuration = URLSessionConfiguration.default
-        configuration.httpCookieStorage = nil
-        let session = URLSession(configuration: configuration)
-        
-        session.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {
-                DispatchQueue.main.async {
-                    self.errorMessage = "Error with network. Please try again."
-                }
-                return
-            }
-            
-            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 401 {
-                DispatchQueue.main.async {
-                    self.errorMessage = "Error Invalid email or password."
-                }
-                return
-            }
-            
-            do {
-                let loginResponse = try decoder.decode(LoginResponse.self, from: data)
-                KeychainHelper.shared.save(loginResponse.token, forKey: "authToken")
-                DispatchQueue.main.async {
-                    isAuthenticated = true
-                }
-            } catch {
-                print("Error decoding JSON: \(error)")
-                if let responseBody = String(data: data, encoding: .utf8) {
-                    print("Error response \(responseBody)")
-                }
-                DispatchQueue.main.async {
-                    self.errorMessage = "Error in submitted details."
-                }
-            }
-        }.resume()
-    }
-}
-
-struct LoginResponse: Codable {
-    let two_factor: Bool
-    let token: String
 }

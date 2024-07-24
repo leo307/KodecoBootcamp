@@ -2,7 +2,7 @@
 //  vtmapp_iosApp.swift
 //  vtmapp-ios
 //
-//  Created by Leo Delprete on 7/8/24.
+//  Created by Leo DelPrete on 7/8/24.
 //
 import Foundation
 
