@@ -11,7 +11,7 @@ struct AssetListView: View {
     @Binding var isAuthenticated: Bool
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List(assets) { asset in
                 NavigationLink(destination: AssetDetailView(assetID: asset.id, isAuthenticated: $isAuthenticated)) {
                     HStack {
@@ -29,7 +29,7 @@ struct AssetListView: View {
                             Color.gray
                                 .frame(width: 100, height: 75)
                         }
-                        
+
                         VStack(alignment: .leading) {
                             Text(asset.title)
                                 .font(.headline)
@@ -39,7 +39,7 @@ struct AssetListView: View {
                                 .foregroundColor(.gray)
                         }
                         .padding(.leading, 10)
-                        
+
                         Spacer()
                     }
                     .padding(.vertical, 5)
@@ -66,15 +66,15 @@ struct AssetListView: View {
         let decoder = JSONDecoder()
         guard let url = URL(string: "\(API.baseURL)/api/current-user/assets"),
               let token = KeychainHelper.shared.get("authToken") else { return }
-        
+
         var request = URLRequest(url: url)
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        
+
         let configuration = URLSessionConfiguration.default
         configuration.httpCookieStorage = nil
         let session = URLSession(configuration: configuration)
-        
+
         session.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else { return }
 
