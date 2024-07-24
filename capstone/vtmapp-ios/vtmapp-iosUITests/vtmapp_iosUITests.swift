@@ -38,23 +38,24 @@ final class UITests: XCTestCase {
         XCTAssertTrue(signInButton.waitForExistence(timeout: 10), "Sign in button should exist")
         emailField.tap()
         emailField.typeText("leo@mobilelocker.com")
+            /* I understand this would be bad practice to do in a production environment, this is only included for testing purposes of this project */
         passwordField.tap()
         passwordField.typeText("test12345")
         signInButton.tap()
             
         let assetLink = app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", "assetLink_")).firstMatch
-        XCTAssertTrue(assetLink.waitForExistence(timeout: 10), "The asset link should appear within 10 seconds.")
+        XCTAssertTrue(assetLink.waitForExistence(timeout: 10), "The link loads within 10 seconds.")
         assetLink.tap()
 
         let videoPlayer = app.otherElements["videoPlayer"]
-        XCTAssertTrue(videoPlayer.waitForExistence(timeout: 10), "The VideoPlayer should be visible when a player is provided.")
+        XCTAssertTrue(videoPlayer.waitForExistence(timeout: 10), "Videoplayer")
 
         let shareButton = app.buttons["shareButton"]
         if shareButton.exists {
-            XCTAssertTrue(shareButton.waitForExistence(timeout: 5), "The Share button should be visible when a watchURL is provided.")
+            XCTAssertTrue(shareButton.waitForExistence(timeout: 5), "Share button visible while video playing.")
         } else {
             let errorMessage = app.staticTexts["errorMessage"]
-            XCTAssertTrue(errorMessage.waitForExistence(timeout: 5), "The error message should be visible when no watchURL is provided.")
+            XCTAssertTrue(errorMessage.waitForExistence(timeout: 5), "No watch URL ")
         }
         }
 
