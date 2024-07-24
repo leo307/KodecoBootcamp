@@ -22,6 +22,8 @@
 		596172C92C49F9880066E132 /* LoginUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596172C82C49F9880066E132 /* LoginUnitTests.swift */; };
 		596172CC2C49FB680066E132 /* AssetUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596172CB2C49FB680066E132 /* AssetUnitTests.swift */; };
 		596172D12C4A0ABD0066E132 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 596172D02C4A0ABD0066E132 /* Launch Screen.storyboard */; };
+		597F72792C507F49008DC47D /* com.raywenderlich.swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 597F72782C507F49008DC47D /* com.raywenderlich.swiftlint.yml */; };
+		597F727B2C507F56008DC47D /* com.raywenderlich.swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 597F727A2C507F56008DC47D /* com.raywenderlich.swiftlint.yml */; };
 		59A216AA2C49D98B0050C66C /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A216A92C49D98B0050C66C /* VideoView.swift */; };
 		59A216AC2C49D9D70050C66C /* AssetDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A216AB2C49D9D70050C66C /* AssetDetailsView.swift */; };
 		59FD321A2C4A14FA0000728F /* KeychainHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FD32192C4A14FA0000728F /* KeychainHelperTests.swift */; };
@@ -57,6 +59,8 @@
 		596172CB2C49FB680066E132 /* AssetUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetUnitTests.swift; sourceTree = "<group>"; };
 		596172CF2C4A09A80066E132 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		596172D02C4A0ABD0066E132 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		597F72782C507F49008DC47D /* com.raywenderlich.swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = com.raywenderlich.swiftlint.yml; path = "../../../../../../../Mobile Locker Dropbox/Leo DelPrete/Mac/Desktop/swift-style-guide-main 2/com.raywenderlich.swiftlint.yml"; sourceTree = "<group>"; };
+		597F727A2C507F56008DC47D /* com.raywenderlich.swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = com.raywenderlich.swiftlint.yml; path = "../../../../../../../Mobile Locker Dropbox/Leo DelPrete/Mac/Desktop/com.raywenderlich.swiftlint.yml"; sourceTree = "<group>"; };
 		59A216A92C49D98B0050C66C /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		59A216AB2C49D9D70050C66C /* AssetDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailsView.swift; sourceTree = "<group>"; };
 		59A216AE2C49E7870050C66C /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 		1E1AB4382C3C774B0045180B /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				597F72782C507F49008DC47D /* com.raywenderlich.swiftlint.yml */,
+				597F727A2C507F56008DC47D /* com.raywenderlich.swiftlint.yml */,
 				1E1AB4392C3C774B0045180B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -262,6 +268,8 @@
 				596172D12C4A0ABD0066E132 /* Launch Screen.storyboard in Resources */,
 				1E1AB43A2C3C774B0045180B /* Preview Assets.xcassets in Resources */,
 				1E1AB4362C3C774B0045180B /* Assets.xcassets in Resources */,
+				597F727B2C507F56008DC47D /* com.raywenderlich.swiftlint.yml in Resources */,
+				597F72792C507F49008DC47D /* com.raywenderlich.swiftlint.yml in Resources */,
 				595F93062C4C49710090CC8F /* com.raywenderlich.swiftlint.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
