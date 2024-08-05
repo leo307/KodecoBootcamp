@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="LaunchBackgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="9JM-hh-yNL">
+                                <rect key="frame" x="-130" y="0.0" width="653" height="852"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="AppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="0qR-XM-RlA">
+                                <rect key="frame" x="0.0" y="354" width="393" height="144"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="144" id="85g-Uq-JB4"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="144" id="B20-Gy-8gL"/>
+                                    <constraint firstAttribute="width" constant="393" id="qEO-EW-Yey"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="9JM-hh-yNL" secondAttribute="bottom" id="3ZJ-Ag-Dey"/>
+                            <constraint firstAttribute="trailing" secondItem="9JM-hh-yNL" secondAttribute="trailing" constant="-130" id="5O6-Qp-xif"/>
+                            <constraint firstItem="0qR-XM-RlA" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="295" id="D6X-3T-zP0"/>
+                            <constraint firstItem="9JM-hh-yNL" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="HAp-t8-rQ3"/>
+                            <constraint firstItem="9JM-hh-yNL" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-130" id="Lle-9L-ZFc"/>
+                            <constraint firstItem="0qR-XM-RlA" firstAttribute="trailing" secondItem="Bcu-3y-fUS" secondAttribute="trailing" id="T0w-xq-qPb"/>
+                            <constraint firstItem="0qR-XM-RlA" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" id="bJJ-7t-aSn"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="0qR-XM-RlA" secondAttribute="bottom" constant="320" id="lCj-Mh-Ygs"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-277.09923664122135" y="-413.38028169014086"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+    <resources>
+        <image name="AppLogo" width="1000" height="492"/>
+        <image name="LaunchBackgroundImage" width="455" height="676"/>
+    </resources>
+</document>
